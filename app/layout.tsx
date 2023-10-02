@@ -1,9 +1,11 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { cn } from "@/lib/utils";
 
 const poppins = Poppins({
 	subsets: ["latin"],
@@ -22,7 +24,12 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en" suppressHydrationWarning>
-			<body className={poppins.className}>
+			<body
+				className={cn(
+					poppins.className,
+					"bg-purple text-white dark:bg-white dark:text-black"
+				)}
+			>
 				<ThemeProvider
 					attribute="class"
 					defaultTheme="system"

@@ -1,21 +1,20 @@
 "use client";
 
 import * as React from "react";
-import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-
-import { Button } from "@/components/ui/button";
+import { RiMoonLine } from "react-icons/ri";
+import { BiSun } from "react-icons/bi";
 
 export default function ToggleTheme() {
 	const { theme, setTheme } = useTheme();
 
 	return (
-		<Button size="icon" className="border-none bg-transparent text-black">
-			{theme === "dark" ? (
-				<Sun onClick={() => setTheme("light")} className="" />
+		<button className="text-white dark:text-black w-fit text-xl">
+			{theme === "light" ? (
+				<BiSun onClick={() => setTheme("dark")} />
 			) : (
-				<Moon onClick={() => setTheme("dark")} className="" />
+				<RiMoonLine onClick={() => setTheme("light")} />
 			)}
-		</Button>
+		</button>
 	);
 }
